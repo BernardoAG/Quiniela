@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Eliminar">
+    tools:context=".Alta">
 
     <LinearLayout
         android:layout_width="368dp"
@@ -13,24 +13,35 @@
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp"
         android:padding="5dp">
-        >
+
 
         <TextView
             android:id="@+id/txTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Eliminar una quiniela"
+            android:text="Agregar una quiniela"
             android:textAlignment="center"
             android:fontFamily="sans-serif"
             android:textSize="20dp"
             style="@style/Base.TextAppearance.AppCompat.Title"
             android:padding="15dp"/>
 
+
+        <TextView
+            android:id="@+id/txtQuiniela"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quiniela a unirse:" />
+        <Spinner
+            android:id="@+id/spQuiniela"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nombre de usuario:" />
+            android:text="Código de quiniela privada (opcional):" />
 
         <EditText
             android:id="@+id/txUsername"
@@ -38,45 +49,31 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Username" />
-
-
-        <TextView
-            android:id="@+id/txtPsw"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Contraseña:" />
-
-        <EditText
-            android:id="@+id/txPsw"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPassword" />
-
-        <TextView
-            android:id="@+id/txtQuiniela"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Quiniela a eliminar:" />
-
-        <Spinner
-            android:id="@+id/spQuiniela"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:text="" />
 
         <CheckBox
             android:id="@+id/checkBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Confirmo eliminar quiniela seleccionada (quedas fuera de la premiación con dicha quiniela)." />
+            android:text="Acepto terminos y condiciones." />
+
+        <TextView
+            android:id="@+id/txtDatos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Completar datos de la quiniela:" />
+
+        <GridView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
         <Button
             android:id="@+id/btDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Eliminar" />
+            android:text="Agregar" />
 
 
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Eliminar"></activity>
+        <activity android:name=".Eliminar" />
+        <activity android:name=".Alta"></activity>
     </application>
 
 </manifest>

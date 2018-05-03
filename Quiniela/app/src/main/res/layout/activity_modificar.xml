@@ -11,7 +11,20 @@
         android:layout_height="495dp"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        tools:layout_editor_absoluteY="8dp"
+        android:padding="5dp">
+        >
+
+        <TextView
+            android:id="@+id/txTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Modificar datos de cuenta"
+            android:textAlignment="center"
+            android:fontFamily="sans-serif"
+            android:textSize="20dp"
+            style="@style/Base.TextAppearance.AppCompat.Title"
+            android:padding="15dp"/>
 
         <TextView
             android:id="@+id/textView"
