@@ -12,12 +12,7 @@
         android:orientation="vertical"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nombre de usuario:" />
+        
 
         <EditText
             android:id="@+id/txUsername"
@@ -25,21 +20,17 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Username" />
+            android:hint="Username" />
 
-
-        <TextView
-            android:id="@+id/txtPsw"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Contraseña:" />
 
         <EditText
             android:id="@+id/txPsw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:hint="Contraseña"
+            />
 
         <CheckBox
             android:id="@+id/checkBox"
