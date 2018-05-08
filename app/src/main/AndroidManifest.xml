@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -29,7 +28,8 @@
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".ClasificationActivity"></activity>
+        <activity android:name=".ClasificationActivity" />
+        <activity android:name=".CreateAccount"></activity>
     </application>
 
 </manifest>
