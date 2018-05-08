@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class Change extends AppCompatActivity {
+public class ChangeActivity extends AppCompatActivity {
     private EditText mail, psw, pswO,pswC, user;
 
     @Override
