@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class Delete extends AppCompatActivity {
+public class DeleteActivity extends AppCompatActivity {
 
     private EditText user, psw;
 

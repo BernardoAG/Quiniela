@@ -9,4 +9,5 @@ class ApplicationModule(private val application: MyApplication) {
 
     @Provides
     fun provideApplicationContext(): Context = application
+
 }
