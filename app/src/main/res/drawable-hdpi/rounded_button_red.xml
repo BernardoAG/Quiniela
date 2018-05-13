@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:insetBottom="@dimen/spacing_small"
+    android:insetLeft="@dimen/spacing_small"
+    android:insetRight="@dimen/spacing_small"
+    android:insetTop="@dimen/spacing_small">
+
+    <shape android:shape="rectangle">
+
+        <solid android:color="@color/error_red" />
+
+        <corners android:radius="@dimen/radius_button" />
+
+    </shape>
+</inset>

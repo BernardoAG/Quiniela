@@ -8,4 +8,17 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Button" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:padding">@dimen/spacing_xxlarge</item>
+    </style>
+
+    <style name="Button.Green.Round" parent="Button">
+        <item name="android:background">@drawable/ripple_rounded_button_green</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Button.Red.Round" parent="Button.Green.Round">
+        <item name="android:background">@drawable/ripple_rounded_button_red</item>
+    </style>
+
 </resources>

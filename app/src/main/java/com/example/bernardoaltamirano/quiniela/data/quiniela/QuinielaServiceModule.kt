@@ -1,0 +1,17 @@
+package com.example.bernardoaltamirano.quiniela.data.quiniela
+
+import dagger.Module
+import dagger.Provides
+import retrofit2.Retrofit
+import kotlin.reflect.jvm.internal.impl.javax.inject.Singleton
+
+@Module
+object QuinielaServiceModule {
+
+    @JvmStatic
+    @Provides
+    @Singleton
+    fun provideQuinielaService(retrofit: Retrofit): QuinielaService {
+        return retrofit.create(QuinielaService::class.java)
+    }
+}

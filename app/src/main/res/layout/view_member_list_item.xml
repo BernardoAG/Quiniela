@@ -16,14 +16,14 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/tvName"
+            android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left|center"
             tools:text="1. Bernardo Altamirano" />
 
         <TextView
-            android:id="@+id/tvPoints"
+            android:id="@+id/tv_points"
             android:layout_gravity="right|center"
             tools:text="500 pts"
             android:layout_width="wrap_content"
