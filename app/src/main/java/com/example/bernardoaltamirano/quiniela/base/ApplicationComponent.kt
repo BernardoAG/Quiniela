@@ -1,6 +1,8 @@
 package com.example.bernardoaltamirano.quiniela.base
 
 import com.example.bernardoaltamirano.quiniela.data.login.LoginServiceModule
+import com.example.bernardoaltamirano.quiniela.data.quiniela.QuinielaServiceModule
+import com.example.bernardoaltamirano.quiniela.database.DatabaseModule
 import com.example.bernardoaltamirano.quiniela.networking.ServiceModule
 import dagger.Component
 import javax.inject.Singleton
@@ -14,7 +16,9 @@ import javax.inject.Singleton
     ApplicationModule::class,
     ActivityBindingModule::class,
     ServiceModule::class,
-    LoginServiceModule::class
+    QuinielaServiceModule::class,
+    LoginServiceModule::class,
+    DatabaseModule::class
 ])
 interface ApplicationComponent {
     fun inject(myApplication: MyApplication)

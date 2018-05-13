@@ -32,7 +32,7 @@ class MembersAdapter : RecyclerView.Adapter<MembersAdapter.Companion.MemberViewH
     }
 
     override fun getItemId(position: Int): Long {
-        return data[position].id
+        return data[position].id!!
     }
 
     fun setData(members: List<User>?) {

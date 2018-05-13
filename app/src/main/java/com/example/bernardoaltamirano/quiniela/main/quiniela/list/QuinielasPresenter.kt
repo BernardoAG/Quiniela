@@ -5,7 +5,7 @@ import com.example.bernardoaltamirano.quiniela.data.quiniela.QuinielaRequester
 import com.example.bernardoaltamirano.quiniela.di.ScreenScope
 import com.example.bernardoaltamirano.quiniela.model.Quiniela
 import com.example.bernardoaltamirano.quiniela.ui.ScreenNavigator
-import kotlin.reflect.jvm.internal.impl.javax.inject.Inject
+import javax.inject.Inject
 
 
 @ScreenScope
@@ -18,7 +18,7 @@ class QuinielasPresenter @Inject constructor(private val viewModel: QuinielasVie
     }
 
     override fun onQuinielaClicked(quiniela: Quiniela) {
-        screenNavigator.goToQuinielaDetails(quiniela.id)
+        screenNavigator.goToQuinielaDetails(quiniela.id!!)
     }
 
     private fun loadQuinielas() {

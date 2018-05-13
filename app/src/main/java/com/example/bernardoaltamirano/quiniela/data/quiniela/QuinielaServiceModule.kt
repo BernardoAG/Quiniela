@@ -3,7 +3,7 @@ package com.example.bernardoaltamirano.quiniela.data.quiniela
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
-import kotlin.reflect.jvm.internal.impl.javax.inject.Singleton
+import javax.inject.Singleton
 
 @Module
 object QuinielaServiceModule {

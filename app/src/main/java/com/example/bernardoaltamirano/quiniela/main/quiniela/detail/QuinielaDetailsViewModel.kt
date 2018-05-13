@@ -7,7 +7,7 @@ import com.jakewharton.rxrelay2.BehaviorRelay
 import io.reactivex.Observable
 import io.reactivex.functions.Consumer
 import timber.log.Timber
-import kotlin.reflect.jvm.internal.impl.javax.inject.Inject
+import javax.inject.Inject
 
 @ScreenScope
 class QuinielaDetailsViewModel @Inject constructor() {

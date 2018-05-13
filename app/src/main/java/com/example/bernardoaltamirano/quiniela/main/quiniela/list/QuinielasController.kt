@@ -5,10 +5,11 @@ import android.view.View
 import android.widget.Toast
 import com.example.bernardoaltamirano.quiniela.R
 import com.example.bernardoaltamirano.quiniela.base.BaseController
+import com.example.bernardoaltamirano.quiniela.model.Quiniela
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.screen_quinielas.view.*
-import kotlin.reflect.jvm.internal.impl.javax.inject.Inject
+import javax.inject.Inject
 
 class QuinielasController : BaseController() {
 

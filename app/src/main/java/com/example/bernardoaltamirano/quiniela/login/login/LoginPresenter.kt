@@ -4,10 +4,11 @@ import android.view.View
 import com.example.bernardoaltamirano.quiniela.R
 import com.example.bernardoaltamirano.quiniela.data.login.LoginRequester
 import com.example.bernardoaltamirano.quiniela.di.ScreenScope
-import kotlin.reflect.jvm.internal.impl.javax.inject.Inject
+import com.example.bernardoaltamirano.quiniela.ui.ScreenNavigator
+import javax.inject.Inject
 
 @ScreenScope
-class LoginPresenter @Inject constructor(private val viewModel: LoginViewModel, private val requester: LoginRequester): View.OnClickListener {
+class LoginPresenter @Inject constructor(private val viewModel: LoginViewModel, private val requester: LoginRequester, private val screenNavigator: ScreenNavigator): View.OnClickListener {
 
     override fun onClick(view: View?) {
         when (view?.id) {
@@ -15,7 +16,7 @@ class LoginPresenter @Inject constructor(private val viewModel: LoginViewModel, 
 
             }
             R.id.bt_register -> {
-
+                screenNavigator.goToRegister()
             }
         }
     }

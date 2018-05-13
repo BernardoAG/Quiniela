@@ -3,6 +3,7 @@ package com.example.bernardoaltamirano.quiniela.login
 import com.bluelinelabs.conductor.Controller
 import com.example.bernardoaltamirano.quiniela.R
 import com.example.bernardoaltamirano.quiniela.base.BaseActivity
+import com.example.bernardoaltamirano.quiniela.login.login.LoginController
 
 class LoginActivity : BaseActivity() {
 
@@ -11,6 +12,6 @@ class LoginActivity : BaseActivity() {
     }
 
     override fun initialScreen(): Controller {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return LoginController()
     }
 }

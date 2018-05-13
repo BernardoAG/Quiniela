@@ -12,6 +12,7 @@ import com.bluelinelabs.conductor.Controller
 import com.example.bernardoaltamirano.quiniela.di.Injector
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
+import timber.log.Timber
 
 /**
  * Created by icaboalo on 01/02/18.
@@ -26,6 +27,7 @@ abstract class BaseController(args: Bundle? = null) : Controller(args) {
         // Controller instances are retained across config changes, so this method can be called more than once. this makes
         // sure we don't waste any time injecting more than once, though technically it wouldn't change functionality.
         if (!injected) {
+            Timber.d("Not injected, now it is")
             Injector.inject(this)
             injected = true
         }

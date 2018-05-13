@@ -2,7 +2,7 @@ package com.example.bernardoaltamirano.quiniela.login.register
 
 import com.example.bernardoaltamirano.quiniela.data.login.LoginRequester
 import com.example.bernardoaltamirano.quiniela.di.ScreenScope
-import kotlin.reflect.jvm.internal.impl.javax.inject.Inject
+import javax.inject.Inject
 
 @ScreenScope
 class RegisterPresenter @Inject constructor(private val viewModel: RegisterViewModel, private val requester: LoginRequester) {

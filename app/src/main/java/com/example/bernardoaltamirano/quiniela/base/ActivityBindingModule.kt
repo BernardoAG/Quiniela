@@ -24,11 +24,11 @@ abstract class ActivityBindingModule {
     @Binds
     @IntoMap
     @ActivityKey(MainActivity::class)
-    internal abstract fun provideMainActivityInjector(builder: MainActivityComponent.Builder): AndroidInjector.Factory<out Activity>
+    abstract fun provideMainActivityInjector(builder: MainActivityComponent.Builder): AndroidInjector.Factory<out Activity>
 
     @Binds
     @IntoMap
     @ActivityKey(LoginActivity::class)
-    internal abstract fun provideLoginActivityInjector(builder: LoginActivityComponent.Builder): AndroidInjector.Factory<out Activity>
+    abstract fun provideLoginActivityInjector(builder: LoginActivityComponent.Builder): AndroidInjector.Factory<out Activity>
 
 }

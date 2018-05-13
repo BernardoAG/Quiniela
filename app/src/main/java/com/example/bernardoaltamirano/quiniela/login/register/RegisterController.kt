@@ -7,7 +7,7 @@ import com.example.bernardoaltamirano.quiniela.base.BaseController
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.screen_login.view.*
-import kotlin.reflect.jvm.internal.impl.javax.inject.Inject
+import javax.inject.Inject
 
 class RegisterController : BaseController() {
 

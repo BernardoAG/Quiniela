@@ -6,7 +6,7 @@ import com.example.bernardoaltamirano.quiniela.model.Quiniela
 import com.jakewharton.rxrelay2.BehaviorRelay
 import io.reactivex.Observable
 import io.reactivex.functions.Consumer
-import kotlin.reflect.jvm.internal.impl.javax.inject.Inject
+import javax.inject.Inject
 
 @ScreenScope
 class QuinielasViewModel @Inject constructor(): BaseViewModel() {

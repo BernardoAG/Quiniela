@@ -4,7 +4,7 @@ import com.example.bernardoaltamirano.quiniela.di.ScreenScope
 import dagger.BindsInstance
 import dagger.Subcomponent
 import dagger.android.AndroidInjector
-import kotlin.reflect.jvm.internal.impl.javax.inject.Named
+import javax.inject.Named
 
 
 @ScreenScope

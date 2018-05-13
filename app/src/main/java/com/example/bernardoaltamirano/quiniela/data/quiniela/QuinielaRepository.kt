@@ -5,9 +5,10 @@ import com.example.bernardoaltamirano.quiniela.model.User
 import io.reactivex.Maybe
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 import javax.inject.Provider
-import kotlin.reflect.jvm.internal.impl.javax.inject.Inject
-import kotlin.reflect.jvm.internal.impl.javax.inject.Singleton
+import javax.inject.Singleton
+
 
 @Singleton
 class QuinielaRepository @Inject constructor(private val requesterProvider: Provider<QuinielaRequester>) {

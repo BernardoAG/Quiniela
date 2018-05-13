@@ -10,7 +10,7 @@ import com.example.bernardoaltamirano.quiniela.base.BaseController
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.screen_quiniela_details.view.*
-import kotlin.reflect.jvm.internal.impl.javax.inject.Inject
+import javax.inject.Inject
 
 class QuinielaDetailsController(bundle: Bundle) : BaseController(bundle) {
 

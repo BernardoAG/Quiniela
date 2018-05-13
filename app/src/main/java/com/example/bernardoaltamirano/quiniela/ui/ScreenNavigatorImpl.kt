@@ -5,6 +5,7 @@ import com.bluelinelabs.conductor.Router
 import com.bluelinelabs.conductor.RouterTransaction
 import com.bluelinelabs.conductor.changehandler.FadeChangeHandler
 import com.example.bernardoaltamirano.quiniela.di.ActivityScope
+import com.example.bernardoaltamirano.quiniela.login.register.RegisterController
 import com.example.bernardoaltamirano.quiniela.main.quiniela.detail.QuinielaDetailsController
 import javax.inject.Inject
 
@@ -33,6 +34,14 @@ class ScreenNavigatorImpl @Inject constructor() : ScreenNavigator {
                     .pushChangeHandler(FadeChangeHandler())
                     .popChangeHandler(FadeChangeHandler()))
 
+        }
+    }
+
+    override fun goToRegister() {
+        if (router != null) {
+            router!!.pushController(RouterTransaction.with(RegisterController())
+                    .pushChangeHandler(FadeChangeHandler())
+                    .popChangeHandler(FadeChangeHandler()))
         }
     }
 

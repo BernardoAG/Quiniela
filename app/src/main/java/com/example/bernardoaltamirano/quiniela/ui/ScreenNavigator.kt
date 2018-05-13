@@ -14,6 +14,8 @@ interface ScreenNavigator {
 
     fun goToQuinielaDetails(quinielaId: Long)
 
+    fun goToRegister()
+
     fun clear()
 
 }
