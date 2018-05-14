@@ -5,6 +5,8 @@ import com.example.bernardoaltamirano.quiniela.login.LoginActivity
 import com.example.bernardoaltamirano.quiniela.login.LoginActivityComponent
 import com.example.bernardoaltamirano.quiniela.main.MainActivity
 import com.example.bernardoaltamirano.quiniela.main.MainActivityComponent
+import com.example.bernardoaltamirano.quiniela.profile.ProfileActivity
+import com.example.bernardoaltamirano.quiniela.profile.ProfileActivityComponent
 import dagger.Binds
 import dagger.Module
 import dagger.android.ActivityKey
@@ -17,7 +19,8 @@ import dagger.multibindings.IntoMap
 
 @Module(subcomponents = [
     MainActivityComponent::class,
-    LoginActivityComponent::class
+    LoginActivityComponent::class,
+    ProfileActivityComponent::class
 ])
 abstract class ActivityBindingModule {
 
@@ -31,4 +34,9 @@ abstract class ActivityBindingModule {
     @ActivityKey(LoginActivity::class)
     abstract fun provideLoginActivityInjector(builder: LoginActivityComponent.Builder): AndroidInjector.Factory<out Activity>
 
+
+    @Binds
+    @IntoMap
+    @ActivityKey(ProfileActivity::class)
+    abstract fun provideProfileActivityInjector(builder: ProfileActivityComponent.Builder): AndroidInjector.Factory<out Activity>
 }

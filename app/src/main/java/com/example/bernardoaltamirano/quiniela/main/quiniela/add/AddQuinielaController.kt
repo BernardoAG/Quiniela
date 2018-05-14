@@ -1,6 +1,7 @@
 package com.example.bernardoaltamirano.quiniela.main.quiniela.add
 
 import android.view.View
+import android.widget.Toast
 import com.example.bernardoaltamirano.quiniela.R
 import com.example.bernardoaltamirano.quiniela.base.BaseController
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -27,7 +28,9 @@ class AddQuinielaController : BaseController() {
                 viewModel.error()
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe {
-
+                            if (it != "") {
+                                Toast.makeText(activity, it, Toast.LENGTH_SHORT).show()
+                            }
                         },
                 viewModel.loading()
                         .observeOn(AndroidSchedulers.mainThread())
