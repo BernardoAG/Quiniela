@@ -1,4 +1,4 @@
 package com.example.bernardoaltamirano.quiniela.util
 
-class ServerError: Throwable() {
+class ServerError(cause: String): Throwable(cause) {
 }

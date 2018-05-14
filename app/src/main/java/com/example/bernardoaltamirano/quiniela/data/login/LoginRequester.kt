@@ -2,6 +2,7 @@ package com.example.bernardoaltamirano.quiniela.data.login
 
 import com.example.bernardoaltamirano.quiniela.data.ServerResponse
 import com.example.bernardoaltamirano.quiniela.model.User
+import com.example.bernardoaltamirano.quiniela.util.ServerError
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import io.realm.Realm
@@ -23,7 +24,13 @@ class LoginRequester @Inject constructor(private val service: LoginService, priv
         Timber.d(json.toString())
         val body = ResponseBody.create(MediaType.parse("application/json"), json.toString())
         return service.login(body)
-                .map(ServerResponse<User>::result)
+                .flatMap {
+                    if (it.success) {
+                        return@flatMap Single.just(it.result)
+                    } else {
+                        return@flatMap Single.error<User>(ServerError(it.message))
+                    }
+                }
                 .doOnSuccess {
                     realm.beginTransaction()
                     realm.copyToRealm(it)
@@ -40,7 +47,13 @@ class LoginRequester @Inject constructor(private val service: LoginService, priv
         Timber.d(json.toString())
         val body = ResponseBody.create(MediaType.parse("application/json"), json.toString())
         return service.register(body)
-                .map(ServerResponse<User>::result)
+                .flatMap {
+                    if (it.success) {
+                        return@flatMap Single.just(it.result)
+                    } else {
+                        return@flatMap Single.error<User>(ServerError(it.message))
+                    }
+                }
                 .subscribeOn(Schedulers.io())
     }
 }

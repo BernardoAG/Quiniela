@@ -3,6 +3,7 @@ package com.example.bernardoaltamirano.quiniela.data.quiniela
 import com.example.bernardoaltamirano.quiniela.data.ServerResponse
 import com.example.bernardoaltamirano.quiniela.model.Quiniela
 import com.example.bernardoaltamirano.quiniela.model.User
+import com.example.bernardoaltamirano.quiniela.util.ServerError
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import okhttp3.MediaType
@@ -13,16 +14,34 @@ class QuinielaRequester @Inject constructor(private val service: QuinielaService
 
     fun getQuinielas(): Single<List<Quiniela>> {
         return service.getQuinielas()
-                .map(ServerResponse<List<Quiniela>>::result)
+                .flatMap {
+                    if (it.success) {
+                        return@flatMap Single.just(it.result)
+                    } else {
+                        return@flatMap Single.error<List<Quiniela>>(ServerError(it.message))
+                    }
+                }
     }
 
     fun getQuiniela(id: Long): Single<Quiniela> {
         return service.getQuiniela(id)
-                .map(ServerResponse<Quiniela>::result)
+                .flatMap {
+                    if (it.success) {
+                        return@flatMap Single.just(it.result)
+                    } else {
+                        return@flatMap Single.error<Quiniela>(ServerError(it.message))
+                    }
+                }
     }
 
     fun getMembers(id: Long): Single<List<User>> {
         return service.getMembers(id)
-                .map(ServerResponse<List<User>>::result)
+                .flatMap {
+                    if (it.success) {
+                        return@flatMap Single.just(it.result)
+                    } else {
+                        return@flatMap Single.error<List<User>>(ServerError(it.message))
+                    }
+                }
     }
 }
