@@ -2,7 +2,7 @@
     <string name="app_name">Quiniela</string>
     <string name="firebase_error_login">An error occurred</string>
     <string name="login.location">Ubicación</string>
-    <string name="login.username">Username</string>
+    <string name="login.email">Email</string>
     <string name="login.password">Password</string>
     <string name="login.button">Inicia sesión</string>
     <string name="scan.product_name">Nombre del producto</string>
@@ -21,4 +21,5 @@
     <string name="members_label">Miembros</string>
     <string name="login.register">Registro</string>
     <string name="confirm_password_label">Confirma la contraseña</string>
+    <string name="login.name">Nombre</string>
 </resources>

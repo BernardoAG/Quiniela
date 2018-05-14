@@ -32,10 +32,11 @@ class LoginRequester @Inject constructor(private val service: LoginService, priv
                 .subscribeOn(Schedulers.io())
     }
 
-    fun register(username: String, password: String): Single<User> {
+    fun register(username: String, password: String, name: String): Single<User> {
         val json = JSONObject()
                 .put("username", username)
                 .put("password", password)
+                .put("name", name)
         Timber.d(json.toString())
         val body = ResponseBody.create(MediaType.parse("application/json"), json.toString())
         return service.register(body)

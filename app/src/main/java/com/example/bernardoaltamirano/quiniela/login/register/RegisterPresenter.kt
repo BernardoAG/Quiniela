@@ -7,8 +7,8 @@ import javax.inject.Inject
 @ScreenScope
 class RegisterPresenter @Inject constructor(private val viewModel: RegisterViewModel, private val requester: LoginRequester) {
 
-    fun register(username: String, password: String) {
-        requester.register(username, password)
+    fun register(username: String, password: String, name: String) {
+        requester.register(username, password, name)
                 .doOnSubscribe {
                     viewModel.loadingUpdated().accept(true)
                 }

@@ -12,9 +12,6 @@ class LoginPresenter @Inject constructor(private val viewModel: LoginViewModel, 
 
     override fun onClick(view: View?) {
         when (view?.id) {
-            R.id.bt_login -> {
-
-            }
             R.id.bt_register -> {
                 screenNavigator.goToRegister()
             }
