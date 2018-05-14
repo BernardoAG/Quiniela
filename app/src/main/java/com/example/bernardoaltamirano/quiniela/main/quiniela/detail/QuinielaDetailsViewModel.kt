@@ -1,8 +1,10 @@
 package com.example.bernardoaltamirano.quiniela.main.quiniela.detail
 
+import com.example.bernardoaltamirano.quiniela.base.BaseViewModel
 import com.example.bernardoaltamirano.quiniela.di.ScreenScope
 import com.example.bernardoaltamirano.quiniela.model.Quiniela
 import com.example.bernardoaltamirano.quiniela.model.User
+import com.example.bernardoaltamirano.quiniela.util.ServerError
 import com.jakewharton.rxrelay2.BehaviorRelay
 import io.reactivex.Observable
 import io.reactivex.functions.Consumer
@@ -43,14 +45,22 @@ class QuinielaDetailsViewModel @Inject constructor() {
     fun detailsError(): Consumer<Throwable> {
         return Consumer {
             Timber.e(it, "Error loading quiniela details")
-            detailStateRelay.accept(QuinielaDetailState(false, error = it.message))
+            if (it is ServerError) {
+                detailStateRelay.accept(QuinielaDetailState(false, error = it.message))
+            } else {
+                detailStateRelay.accept(QuinielaDetailState(false, error = "Ocurrió un error inesperado."))
+            }
         }
     }
 
     fun membersError(): Consumer<Throwable> {
         return Consumer {
             Timber.e(it, "Error loading members")
-            memberStateRelay.accept(MemberState(false, error = it.message))
+            if (it is ServerError) {
+                memberStateRelay.accept(MemberState(false, error = it.message))
+            } else {
+                memberStateRelay.accept(MemberState(false, error = "Ocurrió un error inesperado."))
+            }
         }
     }
 }

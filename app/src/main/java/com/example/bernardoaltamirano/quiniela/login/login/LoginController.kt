@@ -34,7 +34,7 @@ class LoginController : BaseController() {
                 viewModel.error()
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe {
-                            if (it != -1) {
+                            if (it != "") {
                                 Toast.makeText(activity, it, Toast.LENGTH_SHORT).show()
                             }
                         },

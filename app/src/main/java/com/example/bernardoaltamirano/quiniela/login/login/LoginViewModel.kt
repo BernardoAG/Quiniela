@@ -11,32 +11,9 @@ import java.util.*
 import javax.inject.Inject
 
 @ScreenScope
-class LoginViewModel @Inject constructor() {
+class LoginViewModel @Inject constructor(): BaseViewModel() {
 
     private val userRelay: BehaviorRelay<User> = BehaviorRelay.create()
-
-    private val errorRelay: BehaviorRelay<Int> = BehaviorRelay.create()
-    private val loadingRelay: BehaviorRelay<Boolean> = BehaviorRelay.create()
-
-    fun loading(): Observable<Boolean> {
-        return loadingRelay
-    }
-
-    fun error(): Observable<Int> {
-        return errorRelay
-    }
-
-    fun loadingUpdated(): Consumer<Boolean> {
-        errorRelay.accept(-1)
-        return loadingRelay
-    }
-
-    fun onError(): Consumer<Throwable> {
-        return Consumer {
-            Timber.e(it, "Error")
-            errorRelay.accept(0)
-        }
-    }
 
     fun user(): Observable<User> {
         return userRelay

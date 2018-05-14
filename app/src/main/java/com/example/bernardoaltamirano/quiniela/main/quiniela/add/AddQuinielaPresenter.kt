@@ -8,4 +8,7 @@ import javax.inject.Inject
 class AddQuinielaPresenter @Inject constructor(private val viewModel: AddQuinielaViewModel,
                                                private val repository: QuinielaRepository) {
 
+    fun createQuiniela() {
+
+    }
 }
