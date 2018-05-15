@@ -24,7 +24,7 @@ class MyApplication : Application() {
         initRealm()
 
         component = DaggerApplicationComponent.builder()
-                .  applicationModule(ApplicationModule(this))
+                .applicationModule(ApplicationModule(this))
                 .build()
         component.inject(this)
 

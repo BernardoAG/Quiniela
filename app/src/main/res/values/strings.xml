@@ -22,4 +22,10 @@
     <string name="login.register">Registro</string>
     <string name="confirm_password_label">Confirma la contraseña</string>
     <string name="login.name">Nombre</string>
+
+    <array name="partido_1">
+        <item>México v.s. Corea</item>
+        <item>México</item>
+        <item>Corea</item>
+    </array>
 </resources>

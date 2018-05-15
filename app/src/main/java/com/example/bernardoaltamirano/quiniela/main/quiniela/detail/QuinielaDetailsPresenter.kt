@@ -12,7 +12,7 @@ class QuinielaDetailsPresenter @Inject constructor(@Named("quiniela_id") private
                                                    private val repository: QuinielaRepository) {
 
     init {
-        repository.getQuiniela(idQuiniela)
+        /*repository.getQuiniela(idQuiniela)
                 .doOnSuccess(viewModel.processQuiniela())
                 .doOnError(viewModel.detailsError())
                 .flatMap {
@@ -21,6 +21,6 @@ class QuinielaDetailsPresenter @Inject constructor(@Named("quiniela_id") private
                 }
                 .subscribe(viewModel.processMembers(), Consumer {
                     // We handle logging error on the view model.
-                })
+                })*/
     }
 }

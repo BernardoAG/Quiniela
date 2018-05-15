@@ -7,6 +7,7 @@ import android.widget.Toast
 import com.bluelinelabs.conductor.Controller
 import com.example.bernardoaltamirano.quiniela.R
 import com.example.bernardoaltamirano.quiniela.base.BaseController
+import com.example.bernardoaltamirano.quiniela.model.User
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.screen_quiniela_details.view.*
@@ -26,6 +27,11 @@ class QuinielaDetailsController(bundle: Bundle) : BaseController(bundle) {
     override fun onViewBound(view: View) {
         view.rv_members.layoutManager = LinearLayoutManager(view.context)
         view.rv_members.adapter = MembersAdapter()
+
+        (view.rv_members.adapter as MembersAdapter).setData(arrayListOf(
+                User(123, "Bernardo", "bernardo"),
+                User(124, "Iñaki", "icabo")
+        ))
     }
 
     override fun subscriptions(): Array<Disposable> {

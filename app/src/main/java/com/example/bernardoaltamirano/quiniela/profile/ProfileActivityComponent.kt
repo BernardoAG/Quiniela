@@ -10,7 +10,7 @@ import dagger.android.AndroidInjector
     ProfileScreenBindingModule::class,
     NavigationModule::class
 ])
-interface ProfileActivityComponent: AndroidInjector<ProfileActivity> {
+interface ProfileActivityComponent : AndroidInjector<ProfileActivity> {
     @Subcomponent.Builder
-    abstract class Builder: AndroidInjector.Builder<ProfileActivity>()
+    abstract class Builder : AndroidInjector.Builder<ProfileActivity>()
 }
