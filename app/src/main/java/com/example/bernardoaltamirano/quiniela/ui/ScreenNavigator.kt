@@ -12,7 +12,7 @@ interface ScreenNavigator {
 
     fun pop(): Boolean
 
-    fun goToQuinielaDetails(quinielaId: Long)
+    fun goToQuinielaDetails(quinielaId: String)
 
     fun goToRegister()
 

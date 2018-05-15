@@ -32,7 +32,7 @@ class MembersAdapter : RecyclerView.Adapter<MembersAdapter.Companion.MemberViewH
     }
 
     override fun getItemId(position: Int): Long {
-        return data[position].id!!
+        return 0
     }
 
     fun setData(members: List<User>?) {
@@ -51,7 +51,8 @@ class MembersAdapter : RecyclerView.Adapter<MembersAdapter.Companion.MemberViewH
     companion object {
         class MemberViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             fun bind(user: User) {
-                itemView.tv_name.text = "$adapterPosition. ${user.name}"
+                itemView.tv_name.text = "${adapterPosition + 1}. ${user.name}"
+                itemView.tv_points.text = "${user.points} pts."
                 //itemView.tv_username.text = user.username
             }
         }

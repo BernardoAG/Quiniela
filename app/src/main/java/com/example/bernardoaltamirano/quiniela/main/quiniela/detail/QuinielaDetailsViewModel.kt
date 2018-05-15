@@ -32,7 +32,7 @@ class QuinielaDetailsViewModel @Inject constructor() {
 
     fun processQuiniela(): Consumer<Quiniela> {
         return Consumer {
-            detailStateRelay.accept(QuinielaDetailState(false, it.id, it.price, it.name))
+            detailStateRelay.accept(QuinielaDetailState(false, it.id, it.price, it.name, it.members))
         }
     }
 

@@ -34,7 +34,7 @@ class QuinielasAdapter(private val listener: QuinielaClickedListener): RecyclerV
     }
 
     override fun getItemId(position: Int): Long {
-        return data[position].id!!
+        return 0
     }
 
     fun setData(quinielas: List<Quiniela>?) {
@@ -70,7 +70,7 @@ class QuinielasAdapter(private val listener: QuinielaClickedListener): RecyclerV
                 this.quiniela = quiniela
                 itemView.tv_quiniela_name.text = quiniela.name
                 itemView.tv_members.text = "Integrantes: ${quiniela.members}"
-                itemView.tv_money.text = "$${quiniela.members!! * quiniela.price!!}"
+                itemView.tv_money.text = "$ ${quiniela.members!! * quiniela.price!!}"
             }
         }
     }
