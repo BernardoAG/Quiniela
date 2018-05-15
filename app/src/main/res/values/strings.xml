@@ -24,8 +24,18 @@
     <string name="login.name">Nombre</string>
 
     <array name="partido_1">
-        <item>México v.s. Corea</item>
+        <item>México v.s. Alemania</item>
         <item>México</item>
-        <item>Corea</item>
+        <item>Alemania</item>
+    </array>
+    <array name="partido_2">
+        <item>México v.s. Corea del Sur</item>
+        <item>México</item>
+        <item>Corea del Sur</item>
+    </array>
+    <array name="partido_3">
+        <item>México v.s. Suecia</item>
+        <item>México</item>
+        <item>Suecia</item>
     </array>
 </resources>

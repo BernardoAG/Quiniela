@@ -7,24 +7,34 @@
     android:padding="16dp">
 
     <Spinner
+        android:id="@+id/sp1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:entries="@array/partido_1"
-        tools:listitem="@android:layout/simple_expandable_list_item_1"></Spinner>
+        tools:listitem="@android:layout/simple_expandable_list_item_1"
+        android:tooltipText="Partido México v.s. Alemania"
+        > </Spinner>
 
     <Spinner
+        android:id="@+id/sp2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/partido_1"
-        tools:listitem="@android:layout/simple_expandable_list_item_1"></Spinner>
+        android:entries="@array/partido_2"
+        tools:listitem="@android:layout/simple_expandable_list_item_1"
+        android:tooltipText="Partido México v.s. Corea del Sur"
+        > </Spinner>
 
     <Spinner
+        android:id="@+id/sp3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/partido_1"
-        tools:listitem="@android:layout/simple_expandable_list_item_1"></Spinner>
+        android:entries="@array/partido_3"
+        tools:listitem="@android:layout/simple_expandable_list_item_1"
+        android:tooltipText="Partido México v.s. Suecia"
+        > </Spinner>
 
     <Button
+        android:id="@+id/btSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Guardar" />
