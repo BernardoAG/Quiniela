@@ -28,7 +28,7 @@ class ScreenNavigatorImpl @Inject constructor() : ScreenNavigator {
         return router != null && router!!.handleBack()
     }
 
-    override fun goToQuinielaDetails(quinielaId: Long) {
+    override fun goToQuinielaDetails(quinielaId: String) {
         if (router != null) {
             router!!.pushController(RouterTransaction.with(QuinielaDetailsController.newInstance(quinielaId))
                     .pushChangeHandler(FadeChangeHandler())

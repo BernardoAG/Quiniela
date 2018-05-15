@@ -26,15 +26,10 @@ class LoginRequester @Inject constructor(private val service: LoginService, priv
         return service.login(body)
                 .flatMap {
                     if (it.success) {
-                        return@flatMap Single.just(it.result)
+                        return@flatMap Single.just(it.result!!)
                     } else {
                         return@flatMap Single.error<User>(ServerError(it.message))
                     }
-                }
-                .doOnSuccess {
-                    realm.beginTransaction()
-                    realm.copyToRealm(it)
-                    realm.commitTransaction()
                 }
                 .subscribeOn(Schedulers.io())
     }
@@ -49,7 +44,7 @@ class LoginRequester @Inject constructor(private val service: LoginService, priv
         return service.register(body)
                 .flatMap {
                     if (it.success) {
-                        return@flatMap Single.just(it.result)
+                        return@flatMap Single.just(it.result!!)
                     } else {
                         return@flatMap Single.error<User>(ServerError(it.message))
                     }

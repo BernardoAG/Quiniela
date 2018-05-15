@@ -6,8 +6,8 @@ import com.squareup.moshi.Moshi
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
 
-open class Quiniela(@PrimaryKey var id: Long? = null, var price: Double? = null,
-                    var name: String? = null, var members: Int? = null): RealmObject() {
+data class Quiniela(@PrimaryKey var id: String? = null, var price: Double? = null,
+                    var name: String? = null, var members: Int? = null) {
 
 
     companion object {

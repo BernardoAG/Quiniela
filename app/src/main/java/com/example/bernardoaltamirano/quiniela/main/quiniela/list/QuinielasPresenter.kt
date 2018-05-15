@@ -14,7 +14,7 @@ class QuinielasPresenter @Inject constructor(private val viewModel: QuinielasVie
                                              private val screenNavigator: ScreenNavigator): QuinielasAdapter.QuinielaClickedListener {
 
     init {
-        //loadQuinielas()
+        loadQuinielas()
     }
 
     override fun onQuinielaClicked(quiniela: Quiniela) {

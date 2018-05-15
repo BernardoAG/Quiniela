@@ -14,7 +14,7 @@ import javax.inject.Singleton
 class QuinielaRepository @Inject constructor(private val requesterProvider: Provider<QuinielaRequester>) {
 
     private val cachedQuinielas: ArrayList<Quiniela> = ArrayList()
-    private val cachedMembers: HashMap<Long, List<User>> = HashMap()
+    private val cachedMembers: HashMap<String, List<User>> = HashMap()
 
     fun getQuinielas(): Single<List<Quiniela>> {
         return Maybe.concat(cachedQuinielas(), apiQuinielas())
@@ -22,19 +22,19 @@ class QuinielaRepository @Inject constructor(private val requesterProvider: Prov
                 .subscribeOn(Schedulers.io())
     }
 
-    fun getQuiniela(id: Long): Single<Quiniela> {
+    fun getQuiniela(id: String): Single<Quiniela> {
         return Maybe.concat(cachedQuiniela(id), apiQuiniela(id))
                 .firstOrError()
                 .subscribeOn(Schedulers.io())
     }
 
-    fun getMembers(id: Long): Single<List<User>> {
+    fun getMembers(id: String): Single<List<User>> {
         return Maybe.concat(cachedMembers(id), apiMembers(id))
                 .firstOrError()
                 .subscribeOn(Schedulers.io())
     }
 
-    private fun cachedQuiniela(id: Long): Maybe<Quiniela> {
+    private fun cachedQuiniela(id: String): Maybe<Quiniela> {
         return Maybe.create {
             for (quiniela: Quiniela in cachedQuinielas) {
                 if (quiniela.id == id) {
@@ -46,7 +46,7 @@ class QuinielaRepository @Inject constructor(private val requesterProvider: Prov
         }
     }
 
-    private fun apiQuiniela(id: Long): Maybe<Quiniela> {
+    private fun apiQuiniela(id: String): Maybe<Quiniela> {
         return requesterProvider.get()
                 .getQuiniela(id)
                 .toMaybe()
@@ -70,7 +70,7 @@ class QuinielaRepository @Inject constructor(private val requesterProvider: Prov
                 .toMaybe()
     }
 
-    private fun cachedMembers(id: Long): Maybe<List<User>> {
+    private fun cachedMembers(id: String): Maybe<List<User>> {
         return Maybe.create {
             if (cachedMembers.containsKey(id)) {
                 it.onSuccess(cachedMembers[id]!!)
@@ -79,7 +79,7 @@ class QuinielaRepository @Inject constructor(private val requesterProvider: Prov
         }
     }
 
-    private fun apiMembers(id: Long): Maybe<List<User>> {
+    private fun apiMembers(id: String): Maybe<List<User>> {
         return requesterProvider.get().getMembers(id)
                 .doOnSuccess {
                     cachedMembers[id] = it

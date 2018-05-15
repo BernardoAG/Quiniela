@@ -23,7 +23,7 @@ class QuinielaRequester @Inject constructor(private val service: QuinielaService
                 }
     }
 
-    fun getQuiniela(id: Long): Single<Quiniela> {
+    fun getQuiniela(id: String): Single<Quiniela> {
         return service.getQuiniela(id)
                 .flatMap {
                     if (it.success) {
@@ -34,7 +34,7 @@ class QuinielaRequester @Inject constructor(private val service: QuinielaService
                 }
     }
 
-    fun getMembers(id: Long): Single<List<User>> {
+    fun getMembers(id: String): Single<List<User>> {
         return service.getMembers(id)
                 .flatMap {
                     if (it.success) {

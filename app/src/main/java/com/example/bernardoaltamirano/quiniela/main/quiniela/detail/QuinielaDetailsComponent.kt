@@ -15,11 +15,11 @@ interface QuinielaDetailsComponent: AndroidInjector<QuinielaDetailsController> {
     abstract class Builder: AndroidInjector.Builder<QuinielaDetailsController>() {
 
         @BindsInstance
-        abstract fun bindQuinielaId(@Named("quiniela_id") quinielaId: Long)
+        abstract fun bindQuinielaId(@Named("quiniela_id") quinielaId: String)
 
 
         override fun seedInstance(instance: QuinielaDetailsController?) {
-            bindQuinielaId(instance?.args!!.getLong(QuinielaDetailsController.QUINIELA_ID_KEY))
+            bindQuinielaId(instance?.args!!.getString(QuinielaDetailsController.QUINIELA_ID_KEY))
         }
     }
 }

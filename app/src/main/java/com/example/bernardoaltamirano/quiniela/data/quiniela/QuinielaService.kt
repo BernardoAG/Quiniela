@@ -1,24 +1,24 @@
 package com.example.bernardoaltamirano.quiniela.data.quiniela
 
-import com.example.bernardoaltamirano.quiniela.data.ServerResponse
-import com.example.bernardoaltamirano.quiniela.model.Quiniela
-import com.example.bernardoaltamirano.quiniela.model.User
+import com.example.bernardoaltamirano.quiniela.data.QuinielaServerResponse
+import com.example.bernardoaltamirano.quiniela.data.QuinielasServerResponse
+import com.example.bernardoaltamirano.quiniela.data.UsersServerResponse
 import io.reactivex.Single
 import okhttp3.RequestBody
 import retrofit2.http.*
 
 interface QuinielaService {
 
-    @GET("quinielas/")
-    fun getQuinielas(): Single<ServerResponse<List<Quiniela>>>
+    @GET("getQuinielas/")
+    fun getQuinielas(): Single<QuinielasServerResponse>
 
     @POST("quinielas/new/")
-    fun createQuiniela(@Body requestBody: RequestBody): Single<ServerResponse<Quiniela>>
+    fun createQuiniela(@Body requestBody: RequestBody): Single<QuinielaServerResponse>
 
     @GET("quiniela/")
-    fun getQuiniela(@Query("id") id: Long): Single<ServerResponse<Quiniela>>
+    fun getQuiniela(@Query("id") id: String): Single<QuinielaServerResponse>
 
-    @GET("quiniela/members/")
-    fun getMembers(@Query("id") id: Long): Single<ServerResponse<List<User>>>
+    @GET("getQuinielaUsers/")
+    fun getMembers(@Query("id") id: String): Single<UsersServerResponse>
 
 }

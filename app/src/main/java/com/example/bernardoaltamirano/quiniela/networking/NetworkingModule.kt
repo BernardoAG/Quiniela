@@ -35,7 +35,7 @@ object NetworkingModule {
     @Provides
     @Named("base_url")
     fun provideBaseUrl(): String {
-        return "https://us-central1-product-price-scanner.cloudfunctions.net/"
+        return "https://us-central1-quinielas-dd7a2.cloudfunctions.net/"
     }
 
     @JvmStatic

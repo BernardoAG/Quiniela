@@ -1,6 +1,7 @@
 package com.example.bernardoaltamirano.quiniela.data.login
 
 import com.example.bernardoaltamirano.quiniela.data.ServerResponse
+import com.example.bernardoaltamirano.quiniela.data.UserServerResponse
 import com.example.bernardoaltamirano.quiniela.model.User
 import io.reactivex.Single
 import okhttp3.ResponseBody
@@ -13,8 +14,8 @@ import retrofit2.http.POST
 interface LoginService {
 
     @POST("login/")
-    fun login(@Body body: ResponseBody): Single<ServerResponse<User>>
+    fun login(@Body body: ResponseBody): Single<UserServerResponse>
 
     @POST("register/")
-    fun register(@Body body: ResponseBody): Single<ServerResponse<User>>
+    fun register(@Body body: ResponseBody): Single<UserServerResponse>
 }

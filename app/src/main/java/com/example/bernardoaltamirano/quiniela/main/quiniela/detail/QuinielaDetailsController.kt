@@ -1,6 +1,9 @@
 package com.example.bernardoaltamirano.quiniela.main.quiniela.detail
 
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.preference.PreferenceManager
+import android.support.v4.content.SharedPreferencesCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.widget.Toast
@@ -27,11 +30,7 @@ class QuinielaDetailsController(bundle: Bundle) : BaseController(bundle) {
     override fun onViewBound(view: View) {
         view.rv_members.layoutManager = LinearLayoutManager(view.context)
         view.rv_members.adapter = MembersAdapter()
-
-        (view.rv_members.adapter as MembersAdapter).setData(arrayListOf(
-                User(123, "Bernardo", "bernardo"),
-                User(124, "Iñaki", "icabo")
-        ))
+        view.bt_join.setOnClickListener(presenter)
     }
 
     override fun subscriptions(): Array<Disposable> {
@@ -50,6 +49,8 @@ class QuinielaDetailsController(bundle: Bundle) : BaseController(bundle) {
                                 }
                                 view!!.tv_quiniela_name.text = it.name
                                 view!!.tv_members.text = "Integrantes: ${it.members}"
+                                view!!.tv_price.text = "$${it.price}"
+
                             }
                         },
                 viewModel.members()
@@ -65,6 +66,11 @@ class QuinielaDetailsController(bundle: Bundle) : BaseController(bundle) {
                                     Toast.makeText(activity, it.error, Toast.LENGTH_SHORT).show()
                                 } else {
                                     (view!!.rv_members.adapter as MembersAdapter).setData(it.members)
+                                    for (i in 0 .. it.members!!.size - 1) {
+                                        if (it.members[i].id == PreferenceManager.getDefaultSharedPreferences(activity).getString("uid", "123")) {
+                                            view!!.bt_join.visibility = View.GONE
+                                        }
+                                    }
                                 }
 
                             }
@@ -75,9 +81,9 @@ class QuinielaDetailsController(bundle: Bundle) : BaseController(bundle) {
     companion object {
         const val QUINIELA_ID_KEY = "quiniela_id"
 
-        fun newInstance(quinielaId: Long): Controller {
+        fun newInstance(quinielaId: String): Controller {
             val bundle = Bundle()
-            bundle.putLong(QUINIELA_ID_KEY, quinielaId)
+            bundle.putString(QUINIELA_ID_KEY, quinielaId)
             return QuinielaDetailsController(bundle)
         }
     }
