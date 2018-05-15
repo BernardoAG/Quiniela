@@ -25,6 +25,10 @@ class QuinielasController : BaseController() {
     override fun onViewBound(view: View) {
         view.rv_quinielas.layoutManager = LinearLayoutManager(view.context)
         view.rv_quinielas.adapter = QuinielasAdapter(presenter)
+        (view.rv_quinielas.adapter as QuinielasAdapter).setData(arrayListOf(
+                Quiniela(123, 12.0, "Quiniela 1", 2),
+                Quiniela(124, 15.0, "Quiniela 2", 3)
+        ))
     }
 
     override fun subscriptions(): Array<Disposable> {

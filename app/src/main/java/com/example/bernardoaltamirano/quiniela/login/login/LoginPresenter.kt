@@ -26,6 +26,6 @@ class LoginPresenter @Inject constructor(private val viewModel: LoginViewModel, 
                 .doOnEvent { t1, t2 ->
                     viewModel.loadingUpdated().accept(false)
                 }
-                .subscribe(viewModel.userUpdated())
+                .subscribe(viewModel.userUpdated(), viewModel.onError())
     }
 }

@@ -7,7 +7,9 @@ import dagger.Module
 import dagger.android.AndroidInjector
 import dagger.multibindings.IntoMap
 
-@Module
+@Module(subcomponents = [
+    ProfileComponent::class
+])
 abstract class ProfileScreenBindingModule {
 
     @Binds
