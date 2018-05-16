@@ -7,6 +7,6 @@ import io.realm.annotations.PrimaryKey
  * Created by icaboalo on 07/02/18.
  */
 
-data class User(@PrimaryKey var id: String? = null, var name: String? = null, var username: String? = null, var points: Int = 0) {
+data class User(@PrimaryKey var id: String? = null, var name: String? = null, var email: String? = null, var points: Int = 0) {
 
 }

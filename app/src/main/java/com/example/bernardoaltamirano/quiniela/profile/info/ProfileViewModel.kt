@@ -1,4 +1,4 @@
-package com.example.bernardoaltamirano.quiniela.profile
+package com.example.bernardoaltamirano.quiniela.profile.info
 
 import com.example.bernardoaltamirano.quiniela.base.BaseViewModel
 import com.example.bernardoaltamirano.quiniela.di.ScreenScope

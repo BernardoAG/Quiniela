@@ -1,13 +1,12 @@
-package com.example.bernardoaltamirano.quiniela.profile
+package com.example.bernardoaltamirano.quiniela.profile.info
 
-import android.content.Intent
 import android.view.View
 import android.widget.Toast
+import com.example.bernardoaltamirano.quiniela.R
 import com.example.bernardoaltamirano.quiniela.base.BaseController
-import com.example.bernardoaltamirano.quiniela.main.MainActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
-import kotlinx.android.synthetic.main.screen_login.view.*
+import kotlinx.android.synthetic.main.screen_profile.view.*
 import javax.inject.Inject
 
 class ProfileController: BaseController() {
@@ -18,11 +17,13 @@ class ProfileController: BaseController() {
     lateinit var presenter: ProfilePresenter
 
     override fun layoutRes(): Int {
-        return 0
+        return R.layout.screen_profile
     }
 
     override fun onViewBound(view: View) {
-        super.onViewBound(view)
+        view.bt_change_password.setOnClickListener {
+
+        }
     }
 
     override fun subscriptions(): Array<Disposable> {
@@ -37,12 +38,13 @@ class ProfileController: BaseController() {
                 viewModel.loading()
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe {
-                            view?.loading_indicator?.visibility = if (it) View.VISIBLE else View.GONE
+                            view!!.loading_indicator.visibility = if (it) View.VISIBLE else View.GONE
                         },
                 viewModel.user()
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe {
-
+                            view!!.tv_name.text = it.name
+                            view!!.tv_email.text = it.email
                         }
         )
     }

@@ -1,5 +1,6 @@
 package com.example.bernardoaltamirano.quiniela.login.login
 
+import android.content.SharedPreferences
 import android.view.View
 import com.example.bernardoaltamirano.quiniela.R
 import com.example.bernardoaltamirano.quiniela.data.login.LoginRequester
@@ -8,7 +9,9 @@ import com.example.bernardoaltamirano.quiniela.ui.ScreenNavigator
 import javax.inject.Inject
 
 @ScreenScope
-class LoginPresenter @Inject constructor(private val viewModel: LoginViewModel, private val requester: LoginRequester, private val screenNavigator: ScreenNavigator): View.OnClickListener {
+class LoginPresenter @Inject constructor(private val viewModel: LoginViewModel,
+                                         private val requester: LoginRequester,
+                                         private val screenNavigator: ScreenNavigator): View.OnClickListener {
 
     override fun onClick(view: View?) {
         when (view?.id) {

@@ -31,6 +31,7 @@ class QuinielaDetailsController(bundle: Bundle) : BaseController(bundle) {
         view.rv_members.layoutManager = LinearLayoutManager(view.context)
         view.rv_members.adapter = MembersAdapter()
         view.bt_join.setOnClickListener(presenter)
+        view.bt_delete.setOnClickListener(presenter)
     }
 
     override fun subscriptions(): Array<Disposable> {
@@ -60,15 +61,17 @@ class QuinielaDetailsController(bundle: Bundle) : BaseController(bundle) {
                                 view!!.members_loading_indicator!!.visibility = View.VISIBLE
                                 view!!.rv_members!!.visibility = View.GONE
                             } else {
+                                view!!.bt_join.visibility = View.VISIBLE
                                 view!!.members_loading_indicator!!.visibility = View.GONE
                                 view!!.rv_members!!.visibility = View.VISIBLE
                                 if (!it.isSuccess()) {
                                     Toast.makeText(activity, it.error, Toast.LENGTH_SHORT).show()
                                 } else {
                                     (view!!.rv_members.adapter as MembersAdapter).setData(it.members)
-                                    for (i in 0 .. it.members!!.size - 1) {
+                                    for (i in 0 until it.members!!.size) {
                                         if (it.members[i].id == PreferenceManager.getDefaultSharedPreferences(activity).getString("uid", "123")) {
                                             view!!.bt_join.visibility = View.GONE
+                                            view!!.bt_delete.visibility = View.VISIBLE
                                         }
                                     }
                                 }

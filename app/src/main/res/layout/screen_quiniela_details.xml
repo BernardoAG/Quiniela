@@ -90,8 +90,17 @@
 
             <Button
                 android:id="@+id/bt_join"
+                android:visibility="gone"
                 style="@style/Button.Green.Round"
                 android:text="Unirme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:visibility="gone"
+                style="@style/Button.Red.Round"
+                android:id="@+id/bt_delete"
+                android:text="Borrar participación"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>

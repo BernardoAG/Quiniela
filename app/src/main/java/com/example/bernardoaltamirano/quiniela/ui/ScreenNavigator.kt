@@ -16,6 +16,8 @@ interface ScreenNavigator {
 
     fun goToRegister()
 
+    fun goToAddQuiniela()
+
     fun clear()
 
 }

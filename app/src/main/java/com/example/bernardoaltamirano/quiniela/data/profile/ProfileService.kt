@@ -6,9 +6,10 @@ import com.example.bernardoaltamirano.quiniela.model.User
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ProfileService {
 
-    @GET("profile/{id}")
-    fun getProfile(@Path("id") id: String): Single<UserServerResponse>
+    @GET("getUser/")
+    fun getProfile(@Query("id") id: String): Single<UserServerResponse>
 }

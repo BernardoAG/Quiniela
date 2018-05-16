@@ -1,5 +1,6 @@
 package com.example.bernardoaltamirano.quiniela.data.login
 
+import android.content.SharedPreferences
 import com.example.bernardoaltamirano.quiniela.data.ServerResponse
 import com.example.bernardoaltamirano.quiniela.model.User
 import com.example.bernardoaltamirano.quiniela.util.ServerError
@@ -15,7 +16,8 @@ import javax.inject.Inject
 /**
  * Created by icaboalo on 07/02/18.
  */
-class LoginRequester @Inject constructor(private val service: LoginService, private val realm: Realm) {
+class LoginRequester @Inject constructor(private val service: LoginService, private val realm: Realm,
+                                         private val sharedPreferences: SharedPreferences) {
 
     fun login(username: String, password: String): Single<User> {
         val json = JSONObject()
@@ -26,7 +28,8 @@ class LoginRequester @Inject constructor(private val service: LoginService, priv
         return service.login(body)
                 .flatMap {
                     if (it.success) {
-                        return@flatMap Single.just(it.result!!)
+                        sharedPreferences.edit().putString("uid", it.result!!.id)
+                        return@flatMap Single.just(it.result)
                     } else {
                         return@flatMap Single.error<User>(ServerError(it.message))
                     }
@@ -44,7 +47,8 @@ class LoginRequester @Inject constructor(private val service: LoginService, priv
         return service.register(body)
                 .flatMap {
                     if (it.success) {
-                        return@flatMap Single.just(it.result!!)
+                        sharedPreferences.edit().putString("uid", it.result!!.id)
+                        return@flatMap Single.just(it.result)
                     } else {
                         return@flatMap Single.error<User>(ServerError(it.message))
                     }
