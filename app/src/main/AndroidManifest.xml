@@ -25,11 +25,11 @@
         </activity>
         <activity android:name=".ChangeActivity" />
         <activity android:name=".DeleteActivity" />
-        <activity android:name=".login.LoginActivity">
-
-        </activity>
-        <activity android:name=".CreateAccount"></activity>
-        <activity android:name=".profile.ProfileActivity"/>
+        <activity android:name=".login.LoginActivity"></activity>
+        <activity android:name=".CreateAccount" />
+        <activity android:name=".profile.ProfileActivity" />
+        <activity android:name=".help.HelpActivity" />
+        <activity android:name=".help.test"></activity>
     </application>
 
 </manifest>
