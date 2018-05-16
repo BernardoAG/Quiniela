@@ -19,6 +19,12 @@ class ProfileRepository @Inject constructor(private val requesterProvider: Provi
                 .firstOrError()
     }
 
+    fun changePassword(id: String, newPassword: String, oldPassword: String): Single<User> {
+        return Maybe.concat(apiChangePassword(id, newPassword, oldPassword), apiChangePassword(id, newPassword, oldPassword))
+                .subscribeOn(Schedulers.io())
+                .firstOrError()
+    }
+
     private fun cachedUser(id: String): Maybe<User> {
         return Maybe.create {
             if (cachedUsers.containsKey(id)) {
@@ -34,6 +40,12 @@ class ProfileRepository @Inject constructor(private val requesterProvider: Provi
                 .doOnSuccess {
                     cachedUsers[id] = it
                 }
+                .toMaybe()
+    }
+
+    private fun apiChangePassword(id: String, newPassword: String, oldPassword: String): Maybe<User> {
+        return requesterProvider.get()
+                .changePassword(id, newPassword, oldPassword)
                 .toMaybe()
     }
 }

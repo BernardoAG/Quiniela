@@ -18,6 +18,8 @@ interface ScreenNavigator {
 
     fun goToAddQuiniela()
 
+    fun goToChangePassword()
+
     fun clear()
 
 }

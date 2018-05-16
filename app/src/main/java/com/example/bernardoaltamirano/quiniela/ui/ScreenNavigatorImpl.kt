@@ -9,6 +9,7 @@ import com.example.bernardoaltamirano.quiniela.login.register.RegisterController
 import com.example.bernardoaltamirano.quiniela.main.quiniela.add.AddQuinielaController
 import com.example.bernardoaltamirano.quiniela.main.quiniela.add.AddQuinielaPresenter
 import com.example.bernardoaltamirano.quiniela.main.quiniela.detail.QuinielaDetailsController
+import com.example.bernardoaltamirano.quiniela.profile.change_password.ChangePasswordController
 import javax.inject.Inject
 
 /**
@@ -50,6 +51,14 @@ class ScreenNavigatorImpl @Inject constructor() : ScreenNavigator {
     override fun goToAddQuiniela() {
         if (router != null) {
             router!!.pushController(RouterTransaction.with(AddQuinielaController())
+                    .pushChangeHandler(FadeChangeHandler())
+                    .popChangeHandler(FadeChangeHandler()))
+        }
+    }
+
+    override fun goToChangePassword() {
+        if (router != null) {
+            router!!.pushController(RouterTransaction.with(ChangePasswordController())
                     .pushChangeHandler(FadeChangeHandler())
                     .popChangeHandler(FadeChangeHandler()))
         }

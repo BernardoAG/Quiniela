@@ -12,10 +12,10 @@ interface QuinielaService {
     @GET("getQuinielas/")
     fun getQuinielas(): Single<QuinielasServerResponse>
 
-    @POST("quinielas/new/")
+    @POST("createQuiniela/")
     fun createQuiniela(@Body requestBody: RequestBody): Single<QuinielaServerResponse>
 
-    @GET("quiniela/")
+    @GET("getQuiniela/")
     fun getQuiniela(@Query("id") id: String): Single<QuinielaServerResponse>
 
     @GET("getQuinielaUsers/")

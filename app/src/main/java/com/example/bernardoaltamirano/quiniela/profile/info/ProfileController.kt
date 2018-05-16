@@ -21,9 +21,7 @@ class ProfileController: BaseController() {
     }
 
     override fun onViewBound(view: View) {
-        view.bt_change_password.setOnClickListener {
-
-        }
+        view.bt_change_password.setOnClickListener(presenter)
     }
 
     override fun subscriptions(): Array<Disposable> {
