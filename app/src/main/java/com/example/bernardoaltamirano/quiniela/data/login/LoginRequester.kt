@@ -8,6 +8,7 @@ import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import io.realm.Realm
 import okhttp3.MediaType
+import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import org.json.JSONObject
 import timber.log.Timber
@@ -16,20 +17,20 @@ import javax.inject.Inject
 /**
  * Created by icaboalo on 07/02/18.
  */
-class LoginRequester @Inject constructor(private val service: LoginService, private val realm: Realm,
+class LoginRequester @Inject constructor(private val service: LoginService,
                                          private val sharedPreferences: SharedPreferences) {
 
     fun login(username: String, password: String): Single<User> {
         val json = JSONObject()
-                .put("username", username)
+                .put("email", username)
                 .put("password", password)
         Timber.d(json.toString())
-        val body = ResponseBody.create(MediaType.parse("application/json"), json.toString())
+        val body = RequestBody.create(MediaType.parse("application/json"), json.toString())
         return service.login(body)
                 .flatMap {
                     if (it.success) {
-                        sharedPreferences.edit().putString("uid", it.result!!.id)
-                        sharedPreferences.edit().putString("u_name", it.result.name)
+                        sharedPreferences.edit().putString("uid", it.result!!.id).apply()
+                        sharedPreferences.edit().putString("u_name", it.result.name).apply()
                         return@flatMap Single.just(it.result)
                     } else {
                         return@flatMap Single.error<User>(ServerError(it.message))
@@ -40,16 +41,16 @@ class LoginRequester @Inject constructor(private val service: LoginService, priv
 
     fun register(username: String, password: String, name: String): Single<User> {
         val json = JSONObject()
-                .put("username", username)
+                .put("email", username)
                 .put("password", password)
                 .put("name", name)
         Timber.d(json.toString())
-        val body = ResponseBody.create(MediaType.parse("application/json"), json.toString())
+        val body = RequestBody.create(MediaType.parse("application/json"), json.toString())
         return service.register(body)
                 .flatMap {
                     if (it.success) {
-                        sharedPreferences.edit().putString("uid", it.result!!.id)
-                        sharedPreferences.edit().putString("u_name", it.result.name)
+                        sharedPreferences.edit().putString("uid", it.result!!.id).apply()
+                        sharedPreferences.edit().putString("u_name", it.result.name).apply()
                         return@flatMap Single.just(it.result)
                     } else {
                         return@flatMap Single.error<User>(ServerError(it.message))

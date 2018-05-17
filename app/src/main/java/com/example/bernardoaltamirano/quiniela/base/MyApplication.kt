@@ -21,8 +21,6 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        initRealm()
-
         component = DaggerApplicationComponent.builder()
                 .applicationModule(ApplicationModule(this))
                 .build()
@@ -31,16 +29,5 @@ class MyApplication : Application() {
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
-    }
-
-    private fun initRealm() {
-        Realm.init(this)
-
-        val configuration = RealmConfiguration.Builder()
-                .name("db.realm")
-                .deleteRealmIfMigrationNeeded()
-                .build()
-
-        Realm.setDefaultConfiguration(configuration)
     }
 }

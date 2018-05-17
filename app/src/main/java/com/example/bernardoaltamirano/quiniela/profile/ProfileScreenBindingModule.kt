@@ -1,5 +1,6 @@
 package com.example.bernardoaltamirano.quiniela.profile
 
+import android.content.SharedPreferences
 import com.bluelinelabs.conductor.Controller
 import com.example.bernardoaltamirano.quiniela.di.ControllerKey
 import com.example.bernardoaltamirano.quiniela.profile.change_password.ChangePasswordComponent
@@ -8,8 +9,10 @@ import com.example.bernardoaltamirano.quiniela.profile.info.ProfileComponent
 import com.example.bernardoaltamirano.quiniela.profile.info.ProfileController
 import dagger.Binds
 import dagger.Module
+import dagger.Provides
 import dagger.android.AndroidInjector
 import dagger.multibindings.IntoMap
+import javax.inject.Named
 
 @Module(subcomponents = [
     ProfileComponent::class,

@@ -1,5 +1,6 @@
 package com.example.bernardoaltamirano.quiniela.main
 
+import android.content.SharedPreferences
 import com.bluelinelabs.conductor.Controller
 import com.example.bernardoaltamirano.quiniela.di.ControllerKey
 import com.example.bernardoaltamirano.quiniela.main.quiniela.add.AddQuinielaComponent
@@ -12,8 +13,10 @@ import com.example.bernardoaltamirano.quiniela.main.quiniela.list.QuinielasCompo
 import com.example.bernardoaltamirano.quiniela.main.quiniela.list.QuinielasController
 import dagger.Binds
 import dagger.Module
+import dagger.Provides
 import dagger.android.AndroidInjector
 import dagger.multibindings.IntoMap
+import javax.inject.Named
 
 /**
  * Created by icaboalo on 01/02/18.
