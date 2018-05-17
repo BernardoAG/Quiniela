@@ -24,4 +24,7 @@ interface QuinielaService {
     @POST("sendAnswer/")
     fun sendAnswer(@Query("id") id: String, @Body body: RequestBody): Single<QuinielaServerResponse>
 
+    @DELETE("deleteAnswer/")
+    fun deleteAnswer(@Query("id") id:String, @Query("user_id") user_id: String): Single<QuinielaServerResponse>
+
 }

@@ -44,6 +44,11 @@ class QuinielaRepository @Inject constructor(private val requesterProvider: Prov
                 .subscribeOn(Schedulers.io())
     }
 
+    fun deleteAnswer(quinielaId: String, userId: String): Single<Quiniela> {
+        return requesterProvider.get().deleteAnswer(quinielaId, userId)
+                .subscribeOn(Schedulers.io())
+    }
+
     private fun cachedQuiniela(id: String): Maybe<Quiniela> {
         return Maybe.create {
             for (quiniela: Quiniela in cachedQuinielas) {

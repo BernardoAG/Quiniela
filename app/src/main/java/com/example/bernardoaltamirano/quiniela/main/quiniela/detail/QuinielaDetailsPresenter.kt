@@ -1,15 +1,11 @@
 package com.example.bernardoaltamirano.quiniela.main.quiniela.detail
 
-import android.content.SharedPreferences
-import android.preference.PreferenceManager
 import android.view.View
 import com.example.bernardoaltamirano.quiniela.R
 import com.example.bernardoaltamirano.quiniela.data.quiniela.QuinielaRepository
 import com.example.bernardoaltamirano.quiniela.di.ScreenScope
 import com.example.bernardoaltamirano.quiniela.ui.ScreenNavigator
 import io.reactivex.functions.Consumer
-import kotlinx.android.synthetic.main.screen_quiniela_details.view.*
-import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -39,7 +35,14 @@ class QuinielaDetailsPresenter @Inject constructor(@Named("quiniela_id") private
                 joinQuiniela()
             }
             R.id.bt_delete -> {
-
+                repository.deleteAnswer(idQuiniela, userId)
+                        .flatMap {
+                            repository.getMembers(it.id!!)
+                                    .doOnError(viewModel.membersError())
+                        }
+                        .subscribe(viewModel.processMembers(), Consumer {
+                            // We handle loggin error on the view model.
+                        })
             }
         }
     }

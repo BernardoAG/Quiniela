@@ -62,6 +62,7 @@ class QuinielaDetailsController(bundle: Bundle) : BaseController(bundle) {
                                 view!!.rv_members!!.visibility = View.GONE
                             } else {
                                 view!!.bt_join.visibility = View.VISIBLE
+                                view!!.bt_delete.visibility = View.GONE
                                 view!!.members_loading_indicator!!.visibility = View.GONE
                                 view!!.rv_members!!.visibility = View.VISIBLE
                                 if (!it.isSuccess()) {
