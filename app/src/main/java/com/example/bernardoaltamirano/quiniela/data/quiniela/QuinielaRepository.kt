@@ -17,13 +17,13 @@ class QuinielaRepository @Inject constructor(private val requesterProvider: Prov
     private val cachedMembers: HashMap<String, List<User>> = HashMap()
 
     fun getQuinielas(): Single<List<Quiniela>> {
-        return Maybe.concat(cachedQuinielas(), apiQuinielas())
+        return Maybe.concat(apiQuinielas(), cachedQuinielas())
                 .firstOrError()
                 .subscribeOn(Schedulers.io())
     }
 
     fun getQuiniela(id: String): Single<Quiniela> {
-        return Maybe.concat(cachedQuiniela(id), apiQuiniela(id))
+        return Maybe.concat(apiQuiniela(id), cachedQuiniela(id))
                 .firstOrError()
                 .subscribeOn(Schedulers.io())
     }
