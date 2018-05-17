@@ -6,6 +6,7 @@ import android.view.View
 import com.example.bernardoaltamirano.quiniela.R
 import com.example.bernardoaltamirano.quiniela.data.quiniela.QuinielaRepository
 import com.example.bernardoaltamirano.quiniela.di.ScreenScope
+import com.example.bernardoaltamirano.quiniela.ui.ScreenNavigator
 import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.screen_quiniela_details.view.*
 import timber.log.Timber
@@ -16,7 +17,8 @@ import javax.inject.Named
 class QuinielaDetailsPresenter @Inject constructor(@Named("quiniela_id") private val idQuiniela: String,
                                                    private val viewModel: QuinielaDetailsViewModel,
                                                    private val repository: QuinielaRepository,
-                                                   @Named("uid") private val userId: String): View.OnClickListener {
+                                                   @Named("uid") private val userId: String,
+                                                   private val screenNavigator: ScreenNavigator): View.OnClickListener {
 
     init {
         repository.getQuiniela(idQuiniela)
@@ -43,6 +45,7 @@ class QuinielaDetailsPresenter @Inject constructor(@Named("quiniela_id") private
     }
 
     fun joinQuiniela() {
-        Timber.d(userId)
+        screenNavigator.pop()
+        screenNavigator.gotoSendAnswer(idQuiniela)
     }
 }

@@ -4,6 +4,8 @@ import com.bluelinelabs.conductor.Controller
 import com.example.bernardoaltamirano.quiniela.di.ControllerKey
 import com.example.bernardoaltamirano.quiniela.main.quiniela.add.AddQuinielaComponent
 import com.example.bernardoaltamirano.quiniela.main.quiniela.add.AddQuinielaController
+import com.example.bernardoaltamirano.quiniela.main.quiniela.answer.SendAnswerComponent
+import com.example.bernardoaltamirano.quiniela.main.quiniela.answer.SendAnswerController
 import com.example.bernardoaltamirano.quiniela.main.quiniela.detail.QuinielaDetailsController
 import com.example.bernardoaltamirano.quiniela.main.quiniela.detail.QuinielaDetailsComponent
 import com.example.bernardoaltamirano.quiniela.main.quiniela.list.QuinielasComponent
@@ -20,7 +22,8 @@ import dagger.multibindings.IntoMap
 @Module(subcomponents = [
     QuinielasComponent::class,
     QuinielaDetailsComponent::class,
-    AddQuinielaComponent::class
+    AddQuinielaComponent::class,
+    SendAnswerComponent::class
 ])
 abstract class MainScreenBindingModule {
 
@@ -38,4 +41,9 @@ abstract class MainScreenBindingModule {
     @IntoMap
     @ControllerKey(AddQuinielaController::class)
     abstract fun bindAddQuinielaInjector(builder: AddQuinielaComponent.Builder): AndroidInjector.Factory<out Controller>
+
+    @Binds
+    @IntoMap
+    @ControllerKey(SendAnswerController::class)
+    abstract fun bindSendAnswerInjector(builder: SendAnswerComponent.Builder): AndroidInjector.Factory<out Controller>
 }

@@ -8,7 +8,14 @@ import javax.inject.Inject
 class AddQuinielaPresenter @Inject constructor(private val viewModel: AddQuinielaViewModel,
                                                private val repository: QuinielaRepository) {
 
-    fun createQuiniela() {
-
+    fun createQuiniela(name: String, price: Double) {
+        repository.createQuiniela(name, price)
+                .doOnSubscribe {
+                    viewModel.loadingUpdated().accept(true)
+                }
+                .doOnEvent { t1, t2 ->
+                    viewModel.loadingUpdated().accept(false)
+                }
+                .subscribe(viewModel.quinielaUpdated(), viewModel.onError())
     }
 }

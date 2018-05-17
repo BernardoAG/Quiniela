@@ -21,4 +21,7 @@ interface QuinielaService {
     @GET("getQuinielaUsers/")
     fun getMembers(@Query("id") id: String): Single<UsersServerResponse>
 
+    @POST("sendAnswer/")
+    fun sendAnswer(@Query("id") id: String, @Body body: RequestBody): Single<QuinielaServerResponse>
+
 }

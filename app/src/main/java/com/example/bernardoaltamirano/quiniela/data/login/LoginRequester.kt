@@ -29,6 +29,7 @@ class LoginRequester @Inject constructor(private val service: LoginService, priv
                 .flatMap {
                     if (it.success) {
                         sharedPreferences.edit().putString("uid", it.result!!.id)
+                        sharedPreferences.edit().putString("u_name", it.result.name)
                         return@flatMap Single.just(it.result)
                     } else {
                         return@flatMap Single.error<User>(ServerError(it.message))
@@ -48,6 +49,7 @@ class LoginRequester @Inject constructor(private val service: LoginService, priv
                 .flatMap {
                     if (it.success) {
                         sharedPreferences.edit().putString("uid", it.result!!.id)
+                        sharedPreferences.edit().putString("u_name", it.result.name)
                         return@flatMap Single.just(it.result)
                     } else {
                         return@flatMap Single.error<User>(ServerError(it.message))

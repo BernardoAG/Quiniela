@@ -45,7 +45,7 @@ class QuinielasController : BaseController() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_add -> {
-                screenNavigator
+                screenNavigator.goToAddQuiniela()
             }
             R.id.action_help -> {
                 startActivity(Intent(activity, HelpActivity::class.java))

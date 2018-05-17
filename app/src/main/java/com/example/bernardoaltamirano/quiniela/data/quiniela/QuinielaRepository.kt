@@ -29,8 +29,18 @@ class QuinielaRepository @Inject constructor(private val requesterProvider: Prov
     }
 
     fun getMembers(id: String): Single<List<User>> {
-        return Maybe.concat(cachedMembers(id), apiMembers(id))
+        return Maybe.concat(apiMembers(id), cachedMembers(id))
                 .firstOrError()
+                .subscribeOn(Schedulers.io())
+    }
+
+    fun createQuiniela(name: String, price: Double): Single<Quiniela> {
+        return requesterProvider.get().createQuiniela(name, price)
+                .subscribeOn(Schedulers.io())
+    }
+
+    fun sendAnswer(quinielaId: String, userName: String, userId: String, match1: String, match2: String, match3: String): Single<Quiniela> {
+        return requesterProvider.get().sendAnswer(quinielaId, userId, userName, match1, match2, match3)
                 .subscribeOn(Schedulers.io())
     }
 

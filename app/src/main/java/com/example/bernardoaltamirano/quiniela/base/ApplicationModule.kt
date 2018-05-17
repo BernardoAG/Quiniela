@@ -29,4 +29,10 @@ class ApplicationModule(private val application: Application) {
         return sharedPreferences.getString("uid", "123")
     }
 
+    @Provides
+    @Named("u_name")
+    fun provideUserName(sharedPreferences: SharedPreferences): String {
+        return sharedPreferences.getString("u_name", "Usuario de prueba")
+    }
+
 }

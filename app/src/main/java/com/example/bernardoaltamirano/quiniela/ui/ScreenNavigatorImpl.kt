@@ -8,6 +8,7 @@ import com.example.bernardoaltamirano.quiniela.di.ActivityScope
 import com.example.bernardoaltamirano.quiniela.login.register.RegisterController
 import com.example.bernardoaltamirano.quiniela.main.quiniela.add.AddQuinielaController
 import com.example.bernardoaltamirano.quiniela.main.quiniela.add.AddQuinielaPresenter
+import com.example.bernardoaltamirano.quiniela.main.quiniela.answer.SendAnswerController
 import com.example.bernardoaltamirano.quiniela.main.quiniela.detail.QuinielaDetailsController
 import com.example.bernardoaltamirano.quiniela.profile.change_password.ChangePasswordController
 import javax.inject.Inject
@@ -36,7 +37,6 @@ class ScreenNavigatorImpl @Inject constructor() : ScreenNavigator {
             router!!.pushController(RouterTransaction.with(QuinielaDetailsController.newInstance(quinielaId))
                     .pushChangeHandler(FadeChangeHandler())
                     .popChangeHandler(FadeChangeHandler()))
-
         }
     }
 
@@ -59,6 +59,14 @@ class ScreenNavigatorImpl @Inject constructor() : ScreenNavigator {
     override fun goToChangePassword() {
         if (router != null) {
             router!!.pushController(RouterTransaction.with(ChangePasswordController())
+                    .pushChangeHandler(FadeChangeHandler())
+                    .popChangeHandler(FadeChangeHandler()))
+        }
+    }
+
+    override fun gotoSendAnswer(quinielaId: String) {
+        if (router != null) {
+            router!!.pushController(RouterTransaction.with(SendAnswerController.newInstance(quinielaId))
                     .pushChangeHandler(FadeChangeHandler())
                     .popChangeHandler(FadeChangeHandler()))
         }

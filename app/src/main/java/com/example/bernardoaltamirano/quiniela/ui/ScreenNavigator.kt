@@ -22,4 +22,6 @@ interface ScreenNavigator {
 
     fun clear()
 
+    fun gotoSendAnswer(quinielaId: String)
+
 }
