@@ -16,6 +16,9 @@ import timber.log.Timber
 
 /**
  * Created by icaboalo on 01/02/18.
+ *
+ * Controller base con todos los métodos de injección y navegación entre screens.
+ * controller debe de extender de esta para poder tener el funcionamiento pleno
  */
 abstract class BaseController(args: Bundle? = null) : Controller(args) {
 

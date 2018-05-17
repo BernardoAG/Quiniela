@@ -9,7 +9,11 @@ import javax.inject.Inject
 import javax.inject.Provider
 import javax.inject.Singleton
 
-
+/**
+ * Clase de patrón repositorio para manejar información local y del servidor.
+ * En esta clase se elige primero obtener la información del servidor
+ * y en caso de que no se pudiera obtener va a cargar la información previamente almacenada
+ */
 @Singleton
 class QuinielaRepository @Inject constructor(private val requesterProvider: Provider<QuinielaRequester>) {
 

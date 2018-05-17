@@ -9,6 +9,9 @@ import javax.inject.Singleton
 
 /**
  * Created by icaboalo on 01/02/18.
+ *
+ * Esta clase funciona para ser llamada únicamente desde el Application para injectar todas las
+ * dependencias que se dieron en los disstintos modulos.
  */
 
 @Singleton

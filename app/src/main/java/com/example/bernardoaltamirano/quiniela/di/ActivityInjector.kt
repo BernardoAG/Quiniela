@@ -14,6 +14,8 @@ import dagger.android.AndroidInjector
 
 /**
  * Created by icaboalo on 01/02/18.
+ *
+ * Clase encargada de manejar la inección para cada activity, igual que hacer el clear de las activities
  */
 class ActivityInjector @Inject constructor(private var activityInjectors: Map<Class<out Activity>, @JvmSuppressWildcards Provider<AndroidInjector.Factory<out Activity>>>) {
 

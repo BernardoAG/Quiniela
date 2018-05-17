@@ -15,6 +15,8 @@ import dagger.multibindings.IntoMap
 
 /**
  * Created by icaboalo on 01/02/18.
+ *
+ * Clase para injectar las 3 distintas activities dentro de Dagger
  */
 
 @Module(subcomponents = [
@@ -23,6 +25,10 @@ import dagger.multibindings.IntoMap
     ProfileActivityComponent::class
 ])
 abstract class ActivityBindingModule {
+
+    /**
+     * Se injecta individualmente cada una a un Map con la llave puesta como el valor de la clase.
+     */
 
     @Binds
     @IntoMap

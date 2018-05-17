@@ -10,6 +10,11 @@ import javax.inject.Named
 
 /**
  * Created by icaboalo on 01/02/18.
+ *
+ * Clase que injecta ciertos valores a cada clase que se decida injectar a las dependencias
+ *
+ * Tiene la anotación está pertenece a la clase Application por lo que se creará instancia de los
+ * valores sólo una vez.
  */
 
 @Module

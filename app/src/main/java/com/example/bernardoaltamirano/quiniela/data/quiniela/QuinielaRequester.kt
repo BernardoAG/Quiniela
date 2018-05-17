@@ -9,6 +9,14 @@ import okhttp3.RequestBody
 import org.json.JSONObject
 import javax.inject.Inject
 
+/**
+ * Created by icaboalo on 07/02/18.
+ *
+ * Clase encargada de enviar peticiones al servidor únicamente para servicios de login
+ * Aqui se tienen registradas varias funciones: getQuinielas, getQuiniela, getMembers...
+ *
+ * Cada una parsea la información como el servidor la necesita recibir y llama la información
+ */
 class QuinielaRequester @Inject constructor(private val service: QuinielaService) {
 
     fun getQuinielas(): Single<List<Quiniela>> {

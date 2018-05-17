@@ -7,6 +7,10 @@ import io.reactivex.Single
 import okhttp3.RequestBody
 import retrofit2.http.*
 
+/**
+ * En esta clase se registra las URLS a las que se va a hacer una petición, dando como parámetros
+ * lo que el servidor necesita y un tipo de respuesta.
+ */
 interface QuinielaService {
 
     @GET("getQuinielas/")

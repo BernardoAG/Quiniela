@@ -7,7 +7,10 @@ import com.example.bernardoaltamirano.quiniela.R
 import kotlinx.android.synthetic.main.activity_help.*
 import timber.log.Timber
 
-
+/**
+ * Actividad simple para el webview
+ * Aqui se carga una url definida y no se necesita más funcionalidad.
+ */
 class HelpActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -18,6 +18,9 @@ import javax.inject.Inject
 
 /**
  * Created by icaboalo on 01/02/18.
+ *
+ * Activity base con todos los métodos de injección y navegación entre pantallas.
+ * Toda activity debe extender de esta para poder tener el funcionamiento pleno.
  */
 
 abstract class BaseActivity : AppCompatActivity() {

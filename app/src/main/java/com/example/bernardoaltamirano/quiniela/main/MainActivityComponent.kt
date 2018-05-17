@@ -6,7 +6,7 @@ import dagger.Subcomponent
 import dagger.android.AndroidInjector
 
 /**
- * Created by icaboalo on 01/02/18.
+ * Activity encargada de proveer un builder para generar la injección para la activity especifica
  */
 @ActivityScope
 @Subcomponent(modules = [

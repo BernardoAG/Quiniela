@@ -10,6 +10,8 @@ import javax.inject.Provider
 
 /**
  * Created by icaboalo on 01/02/18.
+ *
+ * Clase encargada de hacer el inject a los controllers igual que hacer clear a todos ellos
  */
 @ActivityScope
 class ScreenInjector @Inject constructor(private val screenInjectors: Map<Class<out Controller>, @JvmSuppressWildcards Provider<AndroidInjector.Factory<out Controller>>>) {

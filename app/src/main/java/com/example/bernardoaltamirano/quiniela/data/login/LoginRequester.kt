@@ -1,21 +1,23 @@
 package com.example.bernardoaltamirano.quiniela.data.login
 
 import android.content.SharedPreferences
-import com.example.bernardoaltamirano.quiniela.data.ServerResponse
 import com.example.bernardoaltamirano.quiniela.model.User
 import com.example.bernardoaltamirano.quiniela.util.ServerError
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
-import io.realm.Realm
 import okhttp3.MediaType
 import okhttp3.RequestBody
-import okhttp3.ResponseBody
 import org.json.JSONObject
 import timber.log.Timber
 import javax.inject.Inject
 
 /**
  * Created by icaboalo on 07/02/18.
+ *
+ * Clase encargada de enviar peticiones al servidor únicamente para servicios de login
+ * Aqui se tienen registradas dos funciones: login y register
+ *
+ * Cada una parsea la información como el servidor la necesita recibir y llama la información
  */
 class LoginRequester @Inject constructor(private val service: LoginService,
                                          private val sharedPreferences: SharedPreferences) {

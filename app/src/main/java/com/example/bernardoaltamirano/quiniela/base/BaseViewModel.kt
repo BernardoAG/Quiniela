@@ -6,6 +6,12 @@ import io.reactivex.Observable
 import io.reactivex.functions.Consumer
 import timber.log.Timber
 
+/**
+ * Clase de apoyo para generalizar el ViewModel
+ * Esta se encarga de recibir si la vista está cargando o si ocurrió un error y mandarlo a la pantalla.
+ * ViewModel debe de extender de este.
+ */
+
 abstract class BaseViewModel {
 
     private val errorRelay: BehaviorRelay<String> = BehaviorRelay.create()

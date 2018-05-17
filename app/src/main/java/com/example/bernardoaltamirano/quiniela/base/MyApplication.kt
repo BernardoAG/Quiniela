@@ -10,6 +10,8 @@ import javax.inject.Inject
 
 /**
  * Created by icaboalo on 01/02/18.
+ *
+ * Clase de sobreescritura de Application para poder iniciar Dagger y la injección de dependencias.
  */
 
 class MyApplication : Application() {
@@ -21,6 +23,9 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
+        /**
+         * Aqui se comienza toda la injección para las pantallas.
+         */
         component = DaggerApplicationComponent.builder()
                 .applicationModule(ApplicationModule(this))
                 .build()

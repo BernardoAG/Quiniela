@@ -8,6 +8,8 @@ import javax.inject.Singleton
 
 /**
  * Created by icaboalo on 07/02/18.
+ *
+ * Igual otros modulos este se encarga de regresar un objeto de tipo LoginService e injectarlo a las vistas.
  */
 @Module
 object LoginServiceModule {

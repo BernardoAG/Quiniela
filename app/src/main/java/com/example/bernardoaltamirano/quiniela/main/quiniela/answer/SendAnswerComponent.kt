@@ -7,6 +7,9 @@ import dagger.Subcomponent
 import dagger.android.AndroidInjector
 import javax.inject.Named
 
+/**
+ * Activity encargada de proveer un builder para generar la injección para la pantalla especifica
+ */
 @ScreenScope
 @Subcomponent
 interface SendAnswerComponent: AndroidInjector<SendAnswerController> {
